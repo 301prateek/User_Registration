@@ -18,3 +18,17 @@ else
 fi
 
 
+read -p "Enter Valid last name: " lname
+
+#Last name validation.
+
+regex="^[A-Z]{1}[a-z]{2,}$"
+
+if [[ $lname =~ $regex ]]
+then
+        echo "Valid : " $lname
+else
+        echo "Invalid : " $lname
+fi
+
+
