@@ -57,3 +57,14 @@ then
 else
         echo "Invalid numer: " $mob
 fi
+
+#Password Validation
+read -p "Enter Password 8 characters: " password
+pat="[0-9a-z]([A-Z]+)([#%^&]+)"
+
+if [[ $password =~ $pat ]]
+then
+        echo "Valid password: " $password
+else
+        echo "Invalid password: " $password
+fi
