@@ -32,3 +32,15 @@ else
 fi
 
 
+#Email validation.
+
+read -p "Enter Valid email address: " email
+
+regex="^[a-zA-Z0-9]+([-+.]?)([a-zA-Z0-9]?)+@[a-zA-Z0-9]+.+[a-z]+([.]?)([a-z]?)$"
+
+if [[ $email =~ $regex ]]
+then
+        echo "Valid : " $email
+else
+        echo "Invalid : " $email
+fi
