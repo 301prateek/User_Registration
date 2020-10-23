@@ -59,12 +59,22 @@ else
 fi
 
 #Password Validation
-read -p "Enter Password 8 characters: " password
-pat="[0-9a-z]([A-Z]+)([#%^&]+)"
+read -p "Enter Password 8 characters: " p
 
-if [[ $password =~ $pat ]]
+count=`echo ${#p}`
+
+if [[ $count -lt 0 ]]
 then
-        echo "Valid password: " $password
+        echo "Lenth of the password shoud be 8 or greater"
+	break
+fi
+
+echo $p | grep "[A-Z]" | grep "[a-z]" | grep "[0-9]" | grep "[@#$%^&*]"
+
+if [[ $? -ne 0 ]]
+then
+	 echo "Invalid password, should contain uppercase,lowercase,number and special character : " $p
+
 else
-        echo "Invalid password: " $password
+        echo "Valid password: " $p
 fi
